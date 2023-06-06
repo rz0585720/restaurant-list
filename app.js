@@ -26,11 +26,15 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-	const keyword = req.query.keyword
+	if (!req.query.keyword) {
+		return res.redirect('/')
+	}
+
+	const keyword = req.query.keyword.trim().toLowerCase()
 	const restaurants = results.filter(restaurant => {
 		return (
-			restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
-			restaurant.category.toLowerCase().includes(keyword.toLowerCase())
+			restaurant.name.toLowerCase().includes(keyword) ||
+			restaurant.category.toLowerCase().includes(keyword)
 		)
 	})
 	res.render('index', { restaurants: restaurants, keyword: keyword })
