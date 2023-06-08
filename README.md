@@ -27,7 +27,7 @@ npm install -g nodemon
 ```
 5. Run the scripts to start server
 ```
-npm run dev
+npm run start
 ```
 6. When you see `Express is listening on port: 3000` on terminal means that server has started sucessfully
 
