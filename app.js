@@ -46,6 +46,10 @@ app.get('/', (req, res) => {
 		.catch(error => console.log(error))
 })
 
+app.get('/restaurants/new', (req, res) => {
+	res.render('new')
+})
+
 app.get('/restaurants/:id', (req, res) => {
 	const id = req.params.id
 	return Restaurant.findById(id)
@@ -63,17 +67,16 @@ app.get('/search', (req, res) => {
 	Restaurant.find({})
 		.lean()
 		.then(restaurants => {
-			const searchResults = restaurants.filter(restaurant => {
-					restaurant.name.toLowerCase().includes(keyword) ||
-					restaurant.category.toLowerCase().includes(keyword)				
+			const searchResults = restaurants.filter(data => {
+				return (
+					data.name.toLowerCase().includes(keyword) ||
+					data.category.toLowerCase().includes(keyword)
+				)
 			})
+			console.log(searchResults)
 			res.render('index', { restaurants: searchResults, keyword })
 		})
-		.catch(error => console.log(error))		
-})
-
-app.get('/restaurants/new', (req, res) => {
-	res.render('new')
+		.catch(error => console.log(error))
 })
 
 app.post('/restaurants', (req, res) => {
@@ -97,7 +100,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 		.catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/delete', (req, res) => {
+app.post('/restaurants/:id', (req, res) => {
 	const id = req.params.id
 	return Restaurant.findByIdAndRemove(id)
 		.then(() => res.redirect('/'))

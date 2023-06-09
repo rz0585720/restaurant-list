@@ -84,6 +84,10 @@ header {
 	white-space: nowrap;
 }
 
+.card-footer button {
+	margin-left: 5px;
+}
+
 .restaurant-category {
 	color: #666666;
 	font-size: 0.8rem;
