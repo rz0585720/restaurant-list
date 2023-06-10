@@ -10,5 +10,4 @@ db.once('open', () => {
 			console.log('done!')
 		})
 		.catch(error => console.log(error))
-	console.log('done!')
 })
