@@ -29,6 +29,6 @@ npm install -g nodemon
 ```
 npm run start
 ```
-6. When you see `Express is listening on port: 3000` on terminal means that server has started sucessfully
+6. When you see `Express is listening on port: 3000` on terminal means that server has started successfully
 
 7. Now you can open your browser and enter [https://localhost:3000](https://localhost:3000) to use the websites. Enjoy!
