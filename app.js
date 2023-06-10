@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant')
-
+const methodOverride = require('method-override')
 const port = 3000
 
 if (process.env.NODE_ENV !== 'production') {
@@ -37,7 +37,7 @@ app.use(express.static('public'))
 
 // setting body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(methodOverride('_method'))
 // routes settings
 app.get('/', (req, res) => {
 	Restaurant.find()
@@ -93,14 +93,14 @@ app.get('/restaurants/:id/edit', (req, res) => {
 		.catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
 	const id = req.params.id
 	return Restaurant.findByIdAndUpdate(id, req.body)
 		.then(() => res.redirect(`/restaurants/${id}`))
 		.catch(error => console.log(error))
 })
 
-app.post('/restaurants/:id', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
 	const id = req.params.id
 	return Restaurant.findByIdAndRemove(id)
 		.then(() => res.redirect('/'))
