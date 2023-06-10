@@ -87,9 +87,10 @@
 				type='tel'
 				class='form-control'
 				id='phone'
-				placeholder='02-xxxxxxxx'
+				placeholder='02-xxxx-xxxx or 09xxxxxxxx'
 				name='phone'
 				value='{{restaurant.phone}}'
+				pattern='\d{2,3}-\d{3,4}-\d{4}|09\d{2}(\d{6}|-\d{3}-\d{3})'
 				required
 			/>
 		</div>
