@@ -22,14 +22,20 @@
 							></i></button>
 					</div>
 
-					<div class='input-group form-outline w-25'>
-						<select class='form-select' id='sort' name='sort'>
-							<option>A → Z</option>
-							<option>Z → A</option>
-							<option>類別</option>
-							<option>地區</option>
-						</select>
-					</div>
+					<div class="dropdown">
+            <button class="btn btn-major ml-1 dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
+              aria-expanded="false">
+               Sort By
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li><a class="dropdown-item" href="/sort/nameAsc">A → Z</a></li>
+              <li><a class="dropdown-item" href="/sort/nameDesc">Z → A</a></li>
+              <li><a class="dropdown-item" href="/sort/category">Category</a></li>
+              <li><a class="dropdown-item" href="/sort/location">Location</a></li>
+              <li><a class="dropdown-item" href="/sort/ratingDesc">Rating high → low</a></li>
+							<li><a class="dropdown-item" href="/sort/ratingAsc">Rating low → high</a></li>
+            </ul>
+          </div>
 				</div>
 			</form>
 		</div>

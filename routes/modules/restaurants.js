@@ -37,7 +37,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
 	const id = req.params.id
-	return Restaurant.findByIdAndRemove(id)
+	return Restaurant.findByIdAndDelete(id)
 		.then(() => res.redirect('/'))
 		.catch(error => console.log(error))
 })
