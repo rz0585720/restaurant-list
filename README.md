@@ -6,6 +6,7 @@
 * You can search restaurant by name or category
 * You can add new restaurant
 * You can edit restaurant information
+* You can delete restaurant
 * You can sort restaurants by name, category, location or rating
 ## Prerequisites
 1. [Node.js](https://nodejs.org/en)
