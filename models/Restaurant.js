@@ -38,6 +38,12 @@ const restaurantSchema = new Schema({
 		type: 'string',
 		required: true,
 	},
+	userId: {  
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
+  }
 })
 
 module.exports = mongoose.model('Restaurant', restaurantSchema)
