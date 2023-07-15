@@ -6,8 +6,8 @@ router.get('/:sort', (req, res) => {
 	const sort = req.params.sort
 	const userId = req.user._id
 	const sortOptions = {
-		nameAsc: { name_en: 'asc' },
-		nameDesc: { name_en: 'desc' },
+		nameAsc: { name: 'asc' },
+		nameDesc: { name: 'desc' },
 		category: { category: 'asc' },
 		location: { location: 'asc' },
     ratingDesc: { rating: 'desc' },
