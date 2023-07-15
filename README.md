@@ -8,6 +8,8 @@
 * You can edit restaurant information
 * You can delete restaurant
 * You can sort restaurants by name, category, location or rating
+* You can register an account
+* You can login with Facebook account
 ## Prerequisites
 1. [Node.js](https://nodejs.org/en)
 
@@ -28,10 +30,19 @@ npm install
 ```
 npm install -g nodemon
 ```
-5. Run the scripts to start server
+5. According to .env.example, create .env file
+6. According to your needs, you can create seed data
+```
+npm run seed
+```
+```
+帳號: user1@example.com  帳號: user2@example.com
+密碼: 12345678           密碼: 12345678  
+```
+7. Run the scripts to start server
 ```
 npm run start
 ```
-6. When you see `Express is listening on port: 3000` on terminal means that server has started successfully
+8. When you see `Express is listening on port: 3000` on terminal means that server has started successfully
 
-7. Now you can open your browser and enter [https://localhost:3000](https://localhost:3000) to use the websites. Enjoy!
+9. Now you can open your browser and enter [https://localhost:3000](https://localhost:3000) to use the websites. Enjoy!
