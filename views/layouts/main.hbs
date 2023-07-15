@@ -23,7 +23,9 @@
 					<img src='https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png'
 						width='30' height='30' class='d-inline-block align-top' alt='我的餐廳清單' />
 					{{#if isAuthenticated}}
+					{{#if user.name.length}}
 					{{user.name}}的
+					{{/if}}
 					{{/if}}
 					餐廳清單
 				</a>
@@ -43,6 +45,35 @@
 
 	{{! partial template }}
 	{{{body}}}
+
+	{{!-- modal --}}
+	<div class="modal" id="deleteModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">確認刪除</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>確定要刪除嗎?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="deleteBtn">刪除</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const deleteBtn = document.querySelector('#deleteBtn')
+		const deleteForm = document.querySelector('#delete-form')
+		deleteBtn.addEventListener('click', function () {
+			deleteForm.submit()
+		})
+	</script>
 
 	<script src='https://kit.fontawesome.com/45f8711e96.js' crossorigin='anonymous'></script>
 	<script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js'
