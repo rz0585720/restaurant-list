@@ -11,9 +11,9 @@ module.exports = app => {
 	passport.use(
 		new LocalStrategy(
 			{ usernameField: 'email', passReqToCallback: true },
-			(req, email, password, done) => {
+			(req, email, password, done) => {			
 				User.findOne({ email })
-					.then(user => {
+					.then(user => {						
 						if (!user) {
 							return done(
 								null,
