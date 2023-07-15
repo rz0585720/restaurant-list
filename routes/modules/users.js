@@ -10,6 +10,14 @@ router.get('/login', (req, res) => {
 
 router.post(
 	'/login',
+	(req, res, next) => {
+		const { email, password } = req.body
+		if (!email || !password) {
+			req.flash('warning_msg', '請先登入才能使用！')
+			return res.redirect('/users/login')
+		}
+		next()
+	},
 	passport.authenticate('local', {
 		successRedirect: '/',
 		failureRedirect: '/users/login',
